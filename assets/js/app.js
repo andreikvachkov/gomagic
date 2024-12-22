@@ -24,3 +24,48 @@ const lesvideo__swiper = new Swiper('.lesvideo__swiper', {
     },
 
 });
+
+
+function openRegister() {
+    $('.register_popup').addClass('active');
+    $('body').addClass('no-scroll');
+}
+
+function closeRegister() {
+    $('.register_popup').removeClass('active');
+    $('body').removeClass('no-scroll');
+}
+
+$('.register_popup__close').on('click', closeRegister);
+
+$('.register_popup__open').on('click', openRegister);
+
+function openPlay() {
+    $('.play_popup').addClass('active');
+    $('body').addClass('no-scroll');
+}
+
+function closePlay() {
+    $('.play_popup').removeClass('active');
+    $('body').removeClass('no-scroll');
+}
+
+$('.play_popup__close').on('click', closePlay);
+
+$('.play_popup__open').on('click', openPlay);
+
+function openLang() {
+    $('.header__learn__content').toggleClass('active');
+}
+
+$('.header__learn_btn').on('click', openLang);
+
+
+$(document).on('click', function (event) {
+    if (
+        !$(event.target).closest('.header__learn__content').length &&
+        !$(event.target).closest('.header__learn_btn').length
+    ) {
+        $('.header__learn__content').removeClass('active');
+    }
+});
